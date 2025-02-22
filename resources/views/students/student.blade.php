@@ -3,7 +3,9 @@
 
 @section('content')
 
+<div class="mt-16">
     <h3 class="font-bold text-xl">Student List</h3>
+</div>
     <!-- Bagian Tombol & Form Pencarian -->
     <div class="my-3 flex justify-between items-center mx-auto">
         <a href="student-add"
@@ -12,16 +14,7 @@
         </a>
 
         <div class="flex gap-4 items-center">
-            <!-- Form Pencarian -->
-            <form action="" method="GET" class="flex gap-2">
-                <input type="text" name="keyword" value="{{ request('keyword') }}"
-                    class="rounded block p-2.5 w-72 text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Search..." />
-                <button type="submit"
-                    class="p-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
+
 
             <!-- Dropdown Urutan Terbaru/Terlama -->
             <form action="" method="GET">
