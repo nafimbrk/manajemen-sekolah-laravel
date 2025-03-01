@@ -1,16 +1,14 @@
-@extends('layouts.mainlayout')
-@section('title', 'home')
+<x-mainlayout title="Student Deleted">
 
-@section('content')
-
+<div class="mt-16">
 
 <h3 class="font-bold text-xl">Trash</h3>
+</div>
 
 
-
-<div class="my-3 relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="my-3 relative overflow-x-auto sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     #
@@ -49,4 +47,4 @@
 
 </div>
 
-@endsection
+</x-mainlayout>

@@ -1,16 +1,15 @@
-@extends('layouts.mainlayout')
-@section('title', 'students')
-
-@section('content')
-
-    <h2>anda sedang melihat data detail dari siswa yang bernama {{ $student->name }}</h2>
+<x-mainlayout title="Extracurricular Detail">
 
 
-    <div class="mt-5">
-        <h3>list peserta</h3>
-        <ol>
+
+
+    <div class="mt-16">
+        <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">List Peserta</h2>
+        <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
             @foreach ($ekskul->students as $item)
             <li>{{ $item->name }}</li>
             @endforeach
-        </ol>
+        </ul>
     </div>
+
+</x-mainlayout>

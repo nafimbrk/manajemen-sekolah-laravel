@@ -6,41 +6,21 @@ use App\Http\Requests\StudentCreateRequest;
 use App\Models\ClassRoom;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
-    public function index(Request $request)
+    public function index()
 {
-    $keyword = $request->keyword;
-    $order = $request->order ?? 'latest';
-
-    $student = Student::with('class')
-        ->when($keyword, function ($query) use ($keyword) {
-            $query->where('name', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('gender', $keyword)
-                ->orWhere('nis', 'LIKE', '%' . $keyword . '%')
-                ->orWhereHas('class', function ($query) use ($keyword) {
-                    $query->where('name', 'LIKE', '%' . $keyword . '%');
-                });
-        })
-        ->when($order == 'latest', function ($query) {
-            $query->orderBy('updated_at', 'desc')->orderBy('created_at', 'desc');
-        })
-        ->when($order == 'oldest', function ($query) {
-            $query->orderBy('created_at', 'asc');
-        })
-        ->paginate(10);
+    $student = Student::with('class')->paginate(10);
 
     confirmDelete('Hapus Data', 'Yakin ingin menghapus data');
     return view('students.student', [
-        'studentList' => $student,
-        'order' => $order
+        'studentList' => $student
     ]);
 }
+
 
 
 
@@ -115,22 +95,6 @@ class StudentController extends Controller
         $deletedStudent->delete();
 
         Alert::success('Berhasil', 'Berhasil Menghapus Data');
-        return redirect('/students');
-    }
-
-    public function deletedStudent()
-    {
-        $deletedStudent = Student::onlyTrashed()->get();
-        return view('students.student-deleted-list', ['student' => $deletedStudent]);
-    }
-
-    public function restore($id)
-    {
-        $deletedStudent = Student::withTrashed()->where('id', $id)->restore();
-
-        if ($deletedStudent) {
-            Alert::success('Berhasil', 'Berhasil Merestore Data');
-        }
         return redirect('/students');
     }
 }

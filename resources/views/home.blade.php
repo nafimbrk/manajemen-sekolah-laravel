@@ -1,7 +1,4 @@
-@extends('layouts.mainlayout')
-@section('title', 'home')
-
-@section('content')
+<x-mainlayout title="Home">
 
 
 <div class="mt-20">
@@ -10,4 +7,4 @@
 </div>
 
 
-@endsection
+</x-mainlayout>

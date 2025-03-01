@@ -1,9 +1,8 @@
-@extends('layouts.mainlayout')
-@section('title', 'home')
+<x-mainlayout title="Add Student">
 
-@section('content')
-
+<div class="mt-16">
 <h1 class="font-bold text-2xl">Tambah Data</h1>
+</div>
 <form class="mx-auto" action="student" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-4 mt-4">
@@ -56,4 +55,4 @@
         </div>
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </form>
-@endsection
+</x-mainlayout>

@@ -9,7 +9,8 @@ class Extracurricular extends Model
 {
     use HasFactory;
 
-    
+    protected $guarded = [];
+
     public function students()
     {
         return $this->belongsToMany(Student::class, 'student_extracurricular', 'extracurricular_id', 'student_id');

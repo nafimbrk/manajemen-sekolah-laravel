@@ -35,7 +35,7 @@
           </div>
     @endif
 
-    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
     <h1 class="font-bold text-2xl text-center">Login</h1>
         <!-- Form Login -->
     <form class="space-y-6" action="" method="POST">

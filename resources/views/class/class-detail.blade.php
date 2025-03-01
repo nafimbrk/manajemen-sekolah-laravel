@@ -1,11 +1,7 @@
-@extends('layouts.mainlayout')
-@section('title', 'students')
+<x-mainlayout title="Class Detail">
 
-@section('content')
-
-
-    <div>
-        <h4 class="font-bold text-2xl">Homeroom Teacher: {{ $class->homeroomTeacher->name }}</h4>
+    <div class="mt-14">
+        <h4 class="font-semibold text-lg inline">Homeroom Teacher: </h4><span class="text-gray-500">{{ $class->homeroomTeacher->name }}</span>
     </div>
 
     <div class="mt-3">
@@ -20,4 +16,4 @@
 
 
 
-@endsection
+</x-mainlayout>

@@ -1,11 +1,11 @@
-@extends('layouts.mainlayout')
-@section('title', 'students')
+<x-mainlayout title="Student Detail">
 
-@section('content')
 
-    <h3 class="font-bold text-xl">Student List</h3>
+<div class="mt-16">
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+    <h3 class="font-bold text-xl">Detail Student</h3>
+</div>
+    <div class="relative overflow-x-auto sm:rounded-lg mt-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -61,4 +61,4 @@
 
     </div>
 
-@endsection
+</x-mainlayout>
