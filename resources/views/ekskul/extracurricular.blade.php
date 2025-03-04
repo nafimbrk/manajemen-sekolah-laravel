@@ -2,7 +2,7 @@
     <div class="mt-16 mb-4 flex justify-between items-center mx-auto">
         <h1 class="font-bold text-xl">Extracurricular List</h1>
 
-        <a href="{{ route('teacher.create') }}"
+        <a href="{{ route('ekskul.create') }}"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i
         class="fa-solid fa-plus"></i> Add
         Data</a>
@@ -38,19 +38,19 @@
                             @else
                                 <a class="px-2 py-2 text-white bg-green-700 font-medium rounded dark:text-blue-500 hover:underline"
                                     href="extracurricular-detail/{{ $data->id }}"><i class="fa-solid fa-eye"></i></a>
-                                {{-- <a class="font-medium text-white bg-yellow-400 px-2 py-2 rounded dark:text-blue-500 hover:underline"
-                                    href="teacher/edit/{{ $item->id }}"><i class="fa-solid fa-pencil"></i></a> --}}
+                                <a class="font-medium text-white bg-yellow-400 px-2 py-2 rounded dark:text-blue-500 hover:underline"
+                                    href="{{ route('ekskul.edit', $data->id) }}"><i class="fa-solid fa-pen"></i></a>
                             @endif
 
                             @if (Auth::user()->role_id == 1)
-                            {{-- <form id="delete-form-{{ $item->id }}" action="{{ route('teacher.destroy', $item->id) }}" method="POST" style="display: inline-block">
+                            <form id="delete-form-{{ $data->id }}" action="{{ route('ekskul.destroy', $data->id) }}" method="POST" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="font-medium text-white bg-red-500 px-2 py-2 rounded dark:text-blue-500 hover:underline"
-                                    onclick="confirmDelete({{ $item->id }})">
+                                    onclick="confirmDelete({{ $data->id }})">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
-                            </form> --}}
+                            </form>
 
                             @endif
                         </td>

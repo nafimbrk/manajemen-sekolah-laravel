@@ -13,7 +13,7 @@
 
     <div class="relative overflow-x-auto sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         #
@@ -38,7 +38,7 @@
                             <a class="px-2 py-2 text-white bg-green-700 font-medium rounded dark:text-blue-500 hover:underline"
                             href="class-detail/{{ $data->id }}"><i class="fa-solid fa-eye"></i></a>
                             <a class="font-medium text-white bg-yellow-400 px-2 py-2 rounded dark:text-blue-500 hover:underline"
-                                    href="{{ route('class.edit', $data->id) }}"><i class="fa-solid fa-pencil"></i></a>
+                                    href="{{ route('class.edit', $data->id) }}"><i class="fa-solid fa-pen"></i></a>
                                     @endif
 
                                     @if (Auth::user()->role_id == 1)

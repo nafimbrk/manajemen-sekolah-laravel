@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ExtracurricularController;
+use App\Http\Controllers\ExtracurricularStudentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -36,8 +37,6 @@ Route::get('/class/edit/{id}', [ClassController::class, 'edit'])->middleware('au
 Route::put('/class/update/{id}', [ClassController::class, 'update'])->middleware('auth')->name('class.update');
 Route::delete('/class/destroy/{id}', [ClassController::class, 'destroy'])->middleware('auth')->name('class.destroy');
 
-Route::get('/extracurricular', [ExtracurricularController::class, 'index'])->middleware('auth');
-Route::get('/extracurricular-detail/{id}', [ExtracurricularController::class, 'show'])->middleware('auth');
 
 Route::get('/teacher', [TeacherController::class, 'index'])->middleware('auth');
 Route::get('/teacher-detail/{id}', [TeacherController::class, 'show'])->middleware('auth');
@@ -46,3 +45,19 @@ Route::post('/teacher/store', [TeacherController::class, 'store'])->middleware('
 Route::get('/teacher/edit/{id}', [TeacherController::class, 'edit'])->middleware('auth')->name('teacher.edit');
 Route::put('/teacher/update/{id}', [TeacherController::class, 'update'])->middleware('auth')->name('teacher.update');
 Route::delete('/teacher/destroy/{id}', [TeacherController::class, 'destroy'])->middleware('auth')->name('teacher.destroy');
+
+Route::get('/extracurricular', [ExtracurricularController::class, 'index'])->middleware('auth');
+Route::get('/extracurricular-detail/{id}', [ExtracurricularController::class, 'show'])->middleware('auth');
+Route::get('/extracurricular/create', [ExtracurricularController::class, 'create'])->middleware('auth')->name('ekskul.create');
+Route::post('/extracurricular/store', [ExtracurricularController::class, 'store'])->middleware('auth')->name('ekskul.store');
+Route::get('/extracurricular/edit/{id}', [ExtracurricularController::class, 'edit'])->middleware('auth')->name('ekskul.edit');
+Route::put('/extracurricular/update/{id}', [ExtracurricularController::class, 'update'])->middleware('auth')->name('ekskul.update');
+Route::delete('/extracurricular/destroy/{id}', [ExtracurricularController::class, 'destroy'])->middleware('auth')->name('ekskul.destroy');
+
+Route::get('/extracurricular/student', [ExtracurricularStudentController::class, 'index'])->middleware('auth')->name('ekskul.student.index');
+Route::get('/extracurricular/student/create', [ExtracurricularStudentController::class, 'create'])->middleware('auth')->name('ekskul.student.create');
+Route::post('/extracurricular/student/store', [ExtracurricularStudentController::class, 'store'])->middleware('auth')->name('ekskul.student.store');
+Route::get('/extracurricular/student/edit', [ExtracurricularStudentController::class, 'edit'])->middleware('auth')->name('ekskul.student.edit');
+Route::put('/extracurricular/student/update', [ExtracurricularStudentController::class, 'update'])->middleware('auth')->name('ekskul.student.update');
+Route::delete('/extracurricular/student/destroy', [ExtracurricularStudentController::class, 'destroy'])->middleware('auth')->name('ekskul.student.destroy');
+

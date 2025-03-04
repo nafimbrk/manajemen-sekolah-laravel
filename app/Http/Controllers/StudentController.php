@@ -11,15 +11,27 @@ use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
-    public function index()
-{
-    $student = Student::with('class')->paginate(10);
+    public function index(Request $request)
+    {
+        $keyword = $request->keyword;
 
-    confirmDelete('Hapus Data', 'Yakin ingin menghapus data');
-    return view('students.student', [
-        'studentList' => $student
-    ]);
-}
+        $student = Student::with('class')
+            ->when($keyword, function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('gender', $keyword)
+                    ->orWhere('nis', 'LIKE', '%' . $keyword . '%')
+                    ->orWhereHas('class', function ($query) use ($keyword) {
+                        $query->where('name', 'LIKE', '%' . $keyword . '%');
+                    });
+            })
+            ->paginate(10);
+
+        confirmDelete('Hapus Data', 'Yakin ingin menghapus data');
+
+        return view('students.student', [
+            'studentList' => $student
+        ]);
+    }
 
 
 

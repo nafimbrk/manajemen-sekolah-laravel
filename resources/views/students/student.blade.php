@@ -1,20 +1,15 @@
 <x-mainlayout title="Student">
 
-<!-- Bagian Tombol & Form Pencarian -->
 <div class="mt-16 mb-4 flex justify-between items-center mx-auto">
         <h3 class="font-bold text-xl">Student List</h3>
         <a href="student-add"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2">
             <i class="fa-solid fa-plus"></i> Add Data
         </a>
-
-
     </div>
 
-
-
     <div class="relative overflow-x-auto sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table class="w-full shadow-lg text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -52,7 +47,7 @@
                                 <a class="px-2 py-2 text-white bg-green-700 font-medium rounded dark:text-blue-500 hover:underline"
                                     href="student/{{ $data->id }}"><i class="fa-solid fa-eye"></i></a>
                                 <a class="font-medium text-white bg-yellow-400 px-2 py-2 rounded dark:text-blue-500 hover:underline"
-                                    href="student-edit/{{ $data->id }}"><i class="fa-solid fa-pencil"></i></a>
+                                    href="student-edit/{{ $data->id }}"><i class="fa-solid fa-pen"></i></a>
                             @endif
 
                             @if (Auth::user()->role_id == 1)
@@ -65,15 +60,12 @@
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </form>
-
                             @endif
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-
 
     </div>
 
@@ -82,20 +74,5 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </x-mainlayout>
+
