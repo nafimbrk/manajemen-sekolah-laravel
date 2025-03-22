@@ -61,12 +61,3 @@ Route::post('/extracurricular/student/store', [ExtracurricularStudentController:
 Route::get('/extracurricular/student/edit', [ExtracurricularStudentController::class, 'edit'])->middleware('auth')->name('ekskul.student.edit');
 Route::put('/extracurricular/student/update', [ExtracurricularStudentController::class, 'update'])->middleware('auth')->name('ekskul.student.update');
 Route::delete('/extracurricular/student/destroy', [ExtracurricularStudentController::class, 'destroy'])->middleware('auth')->name('ekskul.student.destroy');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/subject', [SubjectController::class, 'index'])->name('subject.index');
-    Route::get('/subject/create', [SubjectController::class, 'create'])->name('subject.create');
-    Route::post('/subject/store', [SubjectController::class, 'store'])->name('subject.store');
-    Route::get('/subject/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
-    Route::put('/subject/update/{id}', [SubjectController::class, 'update'])->name('subject.update');
-    Route::delete('/subject/destroy/{id}', [SubjectController::class, 'destroy'])->name('subject.destroy');
-});
